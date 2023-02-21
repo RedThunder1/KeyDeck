@@ -1,4 +1,4 @@
-package org.example.inputs;
+package com.keydeck.inputs;
 
 public class Detectinputs {
 

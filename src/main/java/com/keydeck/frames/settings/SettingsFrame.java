@@ -1,9 +1,8 @@
-package org.example.frames.settings;
+package com.keydeck.frames.settings;
 
-import org.example.KeyDeckMain;
+import com.keydeck.KeyDeckMain;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class SettingsFrame {

@@ -1,20 +1,21 @@
-package org.example.frames.modes;
+package com.keydeck.frames.home;
 
-import org.example.KeyDeckMain;
+import com.keydeck.KeyDeckMain;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Modes {
+public class Home {
 
     public static JFrame frame = KeyDeckMain.frame;
 
-    public static void modes() {
-        JLabel desc = new JLabel("Modes");
+    public static void home() {
+        JLabel desc = new JLabel("KeyDeck is software for a custom keybinding device!");
         desc.setForeground(Color.WHITE);
         desc.setFont(new Font("Courier", Font.BOLD,20));
         frame.add(desc);
 
 
     }
+
 }

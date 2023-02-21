@@ -1,4 +1,4 @@
-package org.example.frames.settings;
+package com.keydeck.frames.settings;
 
 import javax.swing.*;
 

@@ -1,9 +1,9 @@
-package org.example;
+package com.keydeck;
 
-import org.example.frames.edit.EditBinds;
-import org.example.frames.home.Home;
-import org.example.frames.modes.Modes;
-import org.example.frames.settings.SettingsFrame;
+import com.keydeck.frames.edit.EditBinds;
+import com.keydeck.frames.home.Home;
+import com.keydeck.frames.modes.Modes;
+import com.keydeck.frames.settings.SettingsFrame;
 
 import javax.swing.*;
 import java.awt.*;
