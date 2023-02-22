@@ -7,7 +7,11 @@ import com.keydeck.frames.settings.SettingsFrame;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Properties;
 
 public class KeyDeckMain {
     public static JFrame frame = new JFrame();
@@ -19,8 +23,33 @@ public class KeyDeckMain {
     public static JButton editBinds = new JButton("Edit KeyBinds");
     public static JButton settings = new JButton("Settings");
 
+    public static boolean darkModeOn = true;
+
+    public static Properties properties = new Properties();
 
     public static void main(String[] args) {
+        try {
+            //Loads saved properties
+            properties.load(new FileInputStream("KeyDeck.properties"));
+            System.out.println("Properties loaded!");
+        } catch (Exception e) {
+            //Catches if there is no saved properties.  This can be the case if its being started for the first time or the properties were deleted / improperly saved.
+            System.out.println("Unable to find properties file.  Settings will be set to default.");
+            properties.put("theme", "darkMode");
+            e.printStackTrace();
+        }
+
+        //Process properties here and load them
+        if (properties.get("theme").equals("darkMode")) {
+            darkModeOn = true;
+            SettingsFrame.setActiveMode(SettingsFrame.getDarkMode());
+        } else {
+            darkModeOn = false;
+            SettingsFrame.setActiveMode(SettingsFrame.getLightMode());
+        }
+
+
+
 
         try {
             //Different look and feels
@@ -35,40 +64,55 @@ public class KeyDeckMain {
 
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(new Color(64,64,64));
+        frame.getContentPane().setBackground(SettingsFrame.getActiveMode()[0]);
         frame.setLayout(new BorderLayout());
         frame.setSize(1400, 800);
         frame.setResizable(false);
 
         JMenuBar menu = new JMenuBar();
-        menu.setBackground(new Color(60,60,60));
+        menu.setBackground(SettingsFrame.getActiveMode()[1]);
         menu.setOpaque(true);
         frame.setJMenuBar(menu);
 
         //Home Page
-        home.setBackground(new Color(80,80,80));
-        home.setForeground(Color.WHITE);
+        home.setBackground(SettingsFrame.getActiveMode()[2]);
+        if (darkModeOn) {
+            home.setForeground(Color.WHITE);
+        } else {
+            home.setForeground(Color.black);
+        }
         home.setOpaque(true);
         menu.add(home);
 
 
         //Responsible for shifting between modes.
         //There will be multiple modes where each mode has different key binds assigned.
-        mode.setBackground(new Color(80,80,80));
-        mode.setForeground(Color.WHITE);
+        mode.setBackground(SettingsFrame.getActiveMode()[2]);
+        if (darkModeOn) {
+            mode.setForeground(Color.WHITE);
+        } else {
+            mode.setForeground(Color.black);
+        }
         mode.setOpaque(true);
         menu.add(mode);
 
         //Opens tab responsible for editing key binds
-        editBinds.setBackground(new Color(80,80,80));
-        editBinds.setForeground(Color.WHITE);
+        editBinds.setBackground(SettingsFrame.getActiveMode()[2]);
+        if (darkModeOn) {
+            editBinds.setForeground(Color.WHITE);
+        } else {
+            editBinds.setForeground(Color.black);
+        }
         editBinds.setOpaque(true);
         menu.add(editBinds);
 
         //Will add settings for the app and other things eventually (I still have to figure out a lot about swing)
-        settings.setBackground(new Color(80,80,80));
-        settings.setForeground(Color.WHITE);
-        settings.setOpaque(true);
+        settings.setBackground(SettingsFrame.getActiveMode()[2]);
+        if (darkModeOn) {
+            settings.setForeground(Color.WHITE);
+        } else {
+            settings.setForeground(Color.black);
+        }        settings.setOpaque(true);
         menu.add(settings);
 
         //Call home class to set home frame
@@ -108,6 +152,18 @@ public class KeyDeckMain {
                 page = "settings";
                 frame.revalidate();
                 frame.repaint();
+            }
+        });
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                try {
+                    System.out.println("Saving properties!");
+                    properties.store(new FileOutputStream("KeyDeck.properties"), null);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }

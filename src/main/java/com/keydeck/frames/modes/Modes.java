@@ -11,7 +11,11 @@ public class Modes {
 
     public static void modes() {
         JLabel desc = new JLabel("Modes");
-        desc.setForeground(Color.WHITE);
+        if (KeyDeckMain.darkModeOn) {
+            desc.setForeground(Color.WHITE);
+        } else {
+            desc.setForeground(Color.black);
+        }
         desc.setFont(new Font("Courier", Font.BOLD,20));
         frame.add(desc);
 

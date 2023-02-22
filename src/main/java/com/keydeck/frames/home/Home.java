@@ -11,7 +11,12 @@ public class Home {
 
     public static void home() {
         JLabel desc = new JLabel("KeyDeck is software for a custom keybinding device!");
-        desc.setForeground(Color.WHITE);
+        if (KeyDeckMain.darkModeOn) {
+            desc.setForeground(Color.WHITE);
+        } else {
+            desc.setForeground(Color.black);
+        }
+
         desc.setFont(new Font("Courier", Font.BOLD,20));
         frame.add(desc);
 
