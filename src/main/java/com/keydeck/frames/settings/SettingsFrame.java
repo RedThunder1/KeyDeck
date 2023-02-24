@@ -10,7 +10,9 @@ import java.util.Properties;
 
 public class SettingsFrame {
     //Unsure what settings will be in here quite yet but once I develop more of the app I will know
-    //0 is dark mode,
+    //0 is dark mode
+    //1 is dev settings
+    //2 will be auto start.  (although im not sure how to do that yet)
     public static List<Boolean> changes = Arrays.asList(false, false);
     public static JFrame frame = KeyDeckMain.frame;
     protected static Color[] darkMode = new Color[]{new Color(64,64,64), new Color(60,60,60), new Color(80,80,80), new Color(50,50,50)};
@@ -46,7 +48,8 @@ public class SettingsFrame {
 
         JPanel settingsPanel = new JPanel();
         settingsPanel.setBackground(activeMode[0]);
-        settingsPanel.setLayout(new SpringLayout());
+        settingsPanel.setLayout(new GridLayout(5,3));
+
         JToggleButton darkModeButton = new JToggleButton("Dark Mode");
         darkModeButton.setBackground(activeMode[2]);
         darkModeButton.setOpaque(true);
@@ -59,13 +62,42 @@ public class SettingsFrame {
             darkModeButton.setEnabled(true);
         }
         settingsPanel.add(darkModeButton);
+
+        JToggleButton devSettings = new JToggleButton("Dev Mode");
+        devSettings.setBackground(activeMode[2]);
+        devSettings.setOpaque(true);
+        if (KeyDeckMain.darkModeOn) {
+            devSettings.setForeground(Color.WHITE);
+        } else {
+            devSettings.setForeground(Color.BLACK);
+        }
+        if (KeyDeckMain.darkModeOn) {
+            devSettings.setEnabled(true);
+        }
+        settingsPanel.add(devSettings);
+
         darkModeButton.addActionListener(e -> {
             if (!(changes.get(0))) {
                 changes.set(0, true);
                 apply.setEnabled(true);
+            } else {
+                changes.set(0, false);
+                apply.setEnabled(false);
             }
 
         });
+
+        devSettings.addActionListener(e -> {
+            if (!(changes.get(1))) {
+                changes.set(1, true);
+                apply.setEnabled(true);
+            } else {
+                changes.set(1, false);
+                apply.setEnabled(false);
+            }
+
+        });
+
         frame.add(settingsPanel, BorderLayout.CENTER);
 
         apply.addActionListener(e -> {
@@ -80,9 +112,23 @@ public class SettingsFrame {
                         properties.put("theme","darkMode");
                         activeMode = darkMode;
                     }
-                    frame.revalidate();
-                    frame.repaint();
+
                 }
+                if (changes.get(1).equals(true)) {
+                    if (KeyDeckMain.devMode) {
+                        KeyDeckMain.devMode = false;
+                        properties.put("devMode", "false");
+                    } else {
+                        KeyDeckMain.devMode = true;
+                        properties.put("devMode", "true");
+                    }
+                }
+
+
+
+
+                frame.revalidate();
+                frame.repaint();
             }
         });
 

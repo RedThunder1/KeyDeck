@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.Properties;
 
 public class KeyDeckMain {
@@ -24,6 +23,8 @@ public class KeyDeckMain {
     public static JButton settings = new JButton("Settings");
 
     public static boolean darkModeOn = true;
+    public static boolean devMode = false;
+    public static boolean canChange = true;
 
     public static Properties properties = new Properties();
 
@@ -39,8 +40,12 @@ public class KeyDeckMain {
             e.printStackTrace();
         }
 
+        if (properties.get("devMode") != null && properties.get("devMode").equals("true")) {
+            devMode = true;
+        }
+
         //Process properties here and load them
-        if (properties.get("theme").equals("darkMode")) {
+        if (properties.get("theme") != null && properties.get("theme").equals("darkMode")) {
             darkModeOn = true;
             SettingsFrame.setActiveMode(SettingsFrame.getDarkMode());
         } else {
@@ -48,8 +53,12 @@ public class KeyDeckMain {
             SettingsFrame.setActiveMode(SettingsFrame.getLightMode());
         }
 
-
-
+        //Loads keybinds.
+        for (int i = 0; i < 24; i++) {
+            if (properties.get(String.valueOf(i)) != null) {
+                EditBinds.getKeybinds().put(String.valueOf(i), (String) properties.get(String.valueOf(i)));
+            }
+        }
 
         try {
             //Different look and feels
@@ -71,6 +80,7 @@ public class KeyDeckMain {
 
         JMenuBar menu = new JMenuBar();
         menu.setBackground(SettingsFrame.getActiveMode()[1]);
+        menu.setLayout(new FlowLayout());
         menu.setOpaque(true);
         frame.setJMenuBar(menu);
 
@@ -116,19 +126,19 @@ public class KeyDeckMain {
         menu.add(settings);
 
         //Call home class to set home frame
-        Home.home();
+        new Home();
         frame.setVisible(true);
         home.addActionListener(e -> {
-            if (!(page.equals("home"))) {
+            if (!(page.equals("home")) && canChange) {
                 frame.getContentPane().removeAll();
-                Home.home();
+                new Home();
                 page = "home";
                 frame.revalidate();
                 frame.repaint();
             }
         });
         mode.addActionListener(e -> {
-            if (!(page.equals("mode"))) {
+            if (!(page.equals("mode")) && canChange) {
                 frame.getContentPane().removeAll();
                 Modes.modes();
                 page = "mode";
@@ -137,7 +147,7 @@ public class KeyDeckMain {
             }
         });
         editBinds.addActionListener(e -> {
-            if (!(page.equals("edit"))) {
+            if (!(page.equals("edit")) && canChange) {
                 frame.getContentPane().removeAll();
                 EditBinds.edit();
                 page = "edit";
@@ -146,7 +156,7 @@ public class KeyDeckMain {
             }
         });
         settings.addActionListener(e -> {
-            if (!(page.equals("settings"))) {
+            if (!(page.equals("settings")) && canChange) {
                 frame.getContentPane().removeAll();
                 SettingsFrame.settings();
                 page = "settings";
@@ -158,12 +168,7 @@ public class KeyDeckMain {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                try {
-                    System.out.println("Saving properties!");
-                    properties.store(new FileOutputStream("KeyDeck.properties"), null);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                new OnExit();
             }
         });
     }
