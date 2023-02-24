@@ -3,6 +3,8 @@ package com.keydeck.frames.home;
 import com.keydeck.KeyDeckMain;
 import com.keydeck.frames.edit.EditBinds;
 import com.keydeck.frames.settings.SettingsFrame;
+import com.keydeck.inputs.Detectinputs;
+import javafx.scene.input.KeyCode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +15,7 @@ public class Home {
     public static JFrame frame = KeyDeckMain.frame;
     public static int modeInt = 1;
 
-    public Home() {
+    public static void home() {
         JLabel desc = new JLabel("KeyDeck is software for a custom keybinding device!", SwingConstants.CENTER);
         if (KeyDeckMain.darkModeOn) {
             desc.setForeground(Color.WHITE);
@@ -187,5 +189,20 @@ public class Home {
             frame.revalidate();
             frame.repaint();
         });
+        key1.addActionListener(e -> {
+            try {
+                new Robot().keyPress(KeyCode.S.getCode());
+            } catch (AWTException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        key2.addActionListener(e -> Detectinputs.keyPress("2"));
+        key3.addActionListener(e -> Detectinputs.keyPress("3"));
+        key4.addActionListener(e -> Detectinputs.keyPress("4"));
+        key5.addActionListener(e -> Detectinputs.keyPress("5"));
+        key6.addActionListener(e -> Detectinputs.keyPress("6"));
+        key7.addActionListener(e -> Detectinputs.keyPress("7"));
+        key8.addActionListener(e -> Detectinputs.keyPress("8"));
+
     }
 }

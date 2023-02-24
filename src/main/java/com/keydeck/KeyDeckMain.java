@@ -49,8 +49,8 @@ public class KeyDeckMain {
             darkModeOn = true;
             SettingsFrame.setActiveMode(SettingsFrame.getDarkMode());
         } else {
-            darkModeOn = false;
-            SettingsFrame.setActiveMode(SettingsFrame.getLightMode());
+            darkModeOn = true;
+            SettingsFrame.setActiveMode(SettingsFrame.getDarkMode());
         }
 
         //Loads keybinds.
@@ -126,12 +126,12 @@ public class KeyDeckMain {
         menu.add(settings);
 
         //Call home class to set home frame
-        new Home();
+        Home.home();
         frame.setVisible(true);
         home.addActionListener(e -> {
             if (!(page.equals("home")) && canChange) {
                 frame.getContentPane().removeAll();
-                new Home();
+                Home.home();
                 page = "home";
                 frame.revalidate();
                 frame.repaint();
