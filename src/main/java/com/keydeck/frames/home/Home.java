@@ -189,13 +189,8 @@ public class Home {
             frame.revalidate();
             frame.repaint();
         });
-        key1.addActionListener(e -> {
-            try {
-                new Robot().keyPress(KeyCode.S.getCode());
-            } catch (AWTException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+
+        key1.addActionListener(e -> Detectinputs.keyPress("1"));
         key2.addActionListener(e -> Detectinputs.keyPress("2"));
         key3.addActionListener(e -> Detectinputs.keyPress("3"));
         key4.addActionListener(e -> Detectinputs.keyPress("4"));

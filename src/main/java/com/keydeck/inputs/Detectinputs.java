@@ -1,12 +1,10 @@
 package com.keydeck.inputs;
 
 import com.keydeck.KeyDeckMain;
-import com.keydeck.frames.home.Home;
 import javafx.scene.input.KeyCode;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Detectinputs {
@@ -25,18 +23,18 @@ public class Detectinputs {
         //Get Keybind
         String bind = KeyDeckMain.properties.getProperty(key);
         List<String> keyBind = new ArrayList<>(List.of());
-        for (int i = 0; i < bind.length(); i++) {
-            if (bind.charAt(i) == '-') {
-                keyBind.add(bind.substring(0,i));
-                bind = bind.substring(i,bind.length());
-                i = 0;
+        if (bind != null) {
+            for (int i = 0; i < bind.length(); i++) {
+                if (bind.charAt(i) == '-') {
+                    keyBind.add(bind.substring(0,i));
+                    bind = bind.substring(i,bind.length());
+                    i = 0;
+                }
+            }
+            for (String s : keyBind) {
+                r.keyPress(KeyCode.getKeyCode(s).getCode());
+                System.out.println("pressing keybind!");
             }
         }
-        for (String s : keyBind) {
-            r.keyPress(KeyCode.getKeyCode(s).getCode());
-            System.out.println("pressing keybind!");
-        }
     }
-
-
 }

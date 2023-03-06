@@ -2,7 +2,6 @@ package com.keydeck;
 
 import com.keydeck.frames.edit.EditBinds;
 import com.keydeck.frames.home.Home;
-import com.keydeck.frames.modes.Modes;
 import com.keydeck.frames.settings.SettingsFrame;
 
 import javax.swing.*;
@@ -18,7 +17,6 @@ public class KeyDeckMain {
 
 
     public static JButton home = new JButton("Home");
-    public static JButton mode = new JButton("Mode");
     public static JButton editBinds = new JButton("Edit KeyBinds");
     public static JButton settings = new JButton("Settings");
 
@@ -94,18 +92,6 @@ public class KeyDeckMain {
         home.setOpaque(true);
         menu.add(home);
 
-
-        //Responsible for shifting between modes.
-        //There will be multiple modes where each mode has different key binds assigned.
-        mode.setBackground(SettingsFrame.getActiveMode()[2]);
-        if (darkModeOn) {
-            mode.setForeground(Color.WHITE);
-        } else {
-            mode.setForeground(Color.black);
-        }
-        mode.setOpaque(true);
-        menu.add(mode);
-
         //Opens tab responsible for editing key binds
         editBinds.setBackground(SettingsFrame.getActiveMode()[2]);
         if (darkModeOn) {
@@ -133,15 +119,6 @@ public class KeyDeckMain {
                 frame.getContentPane().removeAll();
                 Home.home();
                 page = "home";
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
-        mode.addActionListener(e -> {
-            if (!(page.equals("mode")) && canChange) {
-                frame.getContentPane().removeAll();
-                Modes.modes();
-                page = "mode";
                 frame.revalidate();
                 frame.repaint();
             }
