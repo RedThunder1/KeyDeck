@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.bindButton = new System.Windows.Forms.Button();
+            this.homeButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.bindButton1 = new System.Windows.Forms.Button();
+            this.bindButton2 = new System.Windows.Forms.Button();
+            this.bindButton3 = new System.Windows.Forms.Button();
+            this.bindButton4 = new System.Windows.Forms.Button();
+            this.bindButton5 = new System.Windows.Forms.Button();
+            this.bindButton6 = new System.Windows.Forms.Button();
+            this.bindButton7 = new System.Windows.Forms.Button();
+            this.bindButton8 = new System.Windows.Forms.Button();
+            this.bindButton9 = new System.Windows.Forms.Button();
+            this.modeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -50,9 +50,9 @@
             // panel1
             // 
             this.panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.settingsButton);
+            this.panel1.Controls.Add(this.bindButton);
+            this.panel1.Controls.Add(this.homeButton);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1600, 40);
@@ -60,49 +60,54 @@
             // 
             // button3
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(881, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Settings";
-            this.button3.UseVisualStyleBackColor = true;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.ForeColor = System.Drawing.Color.White;
+            this.settingsButton.Location = new System.Drawing.Point(881, 13);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(75, 23);
+            this.settingsButton.TabIndex = 2;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+
             // 
             // button2
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(800, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Bind";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton.ForeColor = System.Drawing.Color.White;
+            this.bindButton.Location = new System.Drawing.Point(800, 13);
+            this.bindButton.Name = "bindButton";
+            this.bindButton.Size = new System.Drawing.Size(75, 23);
+            this.bindButton.TabIndex = 1;
+            this.bindButton.Text = "Bind";
+            this.bindButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.bindButton_Click);
+
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(719, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Home";
-            this.button1.UseVisualStyleBackColor = false;
+            this.homeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homeButton.ForeColor = System.Drawing.Color.White;
+            this.homeButton.Location = new System.Drawing.Point(719, 13);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(75, 23);
+            this.homeButton.TabIndex = 0;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button12);
-            this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.bindButton9);
+            this.panel2.Controls.Add(this.bindButton8);
+            this.panel2.Controls.Add(this.bindButton7);
+            this.panel2.Controls.Add(this.bindButton6);
+            this.panel2.Controls.Add(this.bindButton5);
+            this.panel2.Controls.Add(this.bindButton4);
+            this.panel2.Controls.Add(this.bindButton3);
+            this.panel2.Controls.Add(this.bindButton2);
+            this.panel2.Controls.Add(this.bindButton1);
             this.panel2.Location = new System.Drawing.Point(1, 79);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1600, 476);
@@ -110,114 +115,124 @@
             // 
             // button4
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(172, 470);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Bind 1";
-            this.button4.UseVisualStyleBackColor = false;
+            this.bindButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton1.ForeColor = System.Drawing.Color.White;
+            this.bindButton1.Location = new System.Drawing.Point(3, 3);
+            this.bindButton1.Name = "bindButton1";
+            this.bindButton1.Size = new System.Drawing.Size(172, 470);
+            this.bindButton1.TabIndex = 0;
+            this.bindButton1.Text = "Bind 1";
+            this.bindButton1.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton1_Click);
+
             // 
             // button5
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(359, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(172, 470);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Bind 3";
-            this.button5.UseVisualStyleBackColor = false;
+            this.bindButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton2.ForeColor = System.Drawing.Color.White;
+            this.bindButton2.Location = new System.Drawing.Point(359, 3);
+            this.bindButton2.Name = "bindButton2";
+            this.bindButton2.Size = new System.Drawing.Size(172, 470);
+            this.bindButton2.TabIndex = 1;
+            this.bindButton2.Text = "Bind 3";
+            this.bindButton2.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton2_Click);
             // 
             // button6
             // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(181, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(172, 470);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Bind 2";
-            this.button6.UseVisualStyleBackColor = false;
+            this.bindButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton3.ForeColor = System.Drawing.Color.White;
+            this.bindButton3.Location = new System.Drawing.Point(181, 3);
+            this.bindButton3.Name = "bindButton3";
+            this.bindButton3.Size = new System.Drawing.Size(172, 470);
+            this.bindButton3.TabIndex = 2;
+            this.bindButton3.Text = "Bind 2";
+            this.bindButton3.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton3_Click);
             // 
             // button7
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(537, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(172, 470);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Bind 4";
-            this.button7.UseVisualStyleBackColor = false;
+            this.bindButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton4.ForeColor = System.Drawing.Color.White;
+            this.bindButton4.Location = new System.Drawing.Point(537, 3);
+            this.bindButton4.Name = "bindButton4";
+            this.bindButton4.Size = new System.Drawing.Size(172, 470);
+            this.bindButton4.TabIndex = 3;
+            this.bindButton4.Text = "Bind 4";
+            this.bindButton4.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton4_Click);
             // 
             // button8
             // 
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(715, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(172, 470);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Bind 5";
-            this.button8.UseVisualStyleBackColor = false;
+            this.bindButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton5.ForeColor = System.Drawing.Color.White;
+            this.bindButton5.Location = new System.Drawing.Point(715, 3);
+            this.bindButton5.Name = "bindButton5";
+            this.bindButton5.Size = new System.Drawing.Size(172, 470);
+            this.bindButton5.TabIndex = 4;
+            this.bindButton5.Text = "Bind 5";
+            this.bindButton5.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton5_Click);
             // 
             // button9
             // 
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(893, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(172, 470);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Bind 6";
-            this.button9.UseVisualStyleBackColor = false;
+            this.bindButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton6.ForeColor = System.Drawing.Color.White;
+            this.bindButton6.Location = new System.Drawing.Point(893, 3);
+            this.bindButton6.Name = "bindButton6";
+            this.bindButton6.Size = new System.Drawing.Size(172, 470);
+            this.bindButton6.TabIndex = 5;
+            this.bindButton6.Text = "Bind 6";
+            this.bindButton6.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton6_Click);
             // 
             // button10
             // 
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1071, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(172, 470);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "Bind 7";
-            this.button10.UseVisualStyleBackColor = false;
+            this.bindButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton7.ForeColor = System.Drawing.Color.White;
+            this.bindButton7.Location = new System.Drawing.Point(1071, 3);
+            this.bindButton7.Name = "bindButton7";
+            this.bindButton7.Size = new System.Drawing.Size(172, 470);
+            this.bindButton7.TabIndex = 6;
+            this.bindButton7.Text = "Bind 7";
+            this.bindButton7.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton7_Click);
             // 
             // button11
             // 
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(1249, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(172, 470);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "Bind 8";
-            this.button11.UseVisualStyleBackColor = false;
+            this.bindButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton8.ForeColor = System.Drawing.Color.White;
+            this.bindButton8.Location = new System.Drawing.Point(1249, 3);
+            this.bindButton8.Name = "bindButton8";
+            this.bindButton8.Size = new System.Drawing.Size(172, 470);
+            this.bindButton8.TabIndex = 7;
+            this.bindButton8.Text = "Bind 8";
+            this.bindButton8.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton8_Click);
             // 
             // button12
             // 
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(1427, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(162, 470);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "Bind 9";
-            this.button12.UseVisualStyleBackColor = false;
+            this.bindButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bindButton9.ForeColor = System.Drawing.Color.White;
+            this.bindButton9.Location = new System.Drawing.Point(1427, 3);
+            this.bindButton9.Name = "bindButton9";
+            this.bindButton9.Size = new System.Drawing.Size(162, 470);
+            this.bindButton9.TabIndex = 8;
+            this.bindButton9.Text = "Bind 9";
+            this.bindButton9.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.bindButton9_Click);
             // 
             // button13
             // 
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(538, 691);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(600, 80);
-            this.button13.TabIndex = 2;
-            this.button13.Text = "Mode: 1";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.modeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modeButton.ForeColor = System.Drawing.Color.White;
+            this.modeButton.Location = new System.Drawing.Point(538, 691);
+            this.modeButton.Name = "modeButton";
+            this.modeButton.Size = new System.Drawing.Size(600, 80);
+            this.modeButton.TabIndex = 2;
+            this.modeButton.Text = "Mode: 1";
+            this.modeButton.UseVisualStyleBackColor = false;
+            this.modeButton.Click += new System.EventHandler(this.modeButton_Click);
             // 
             // Bind
             // 
@@ -225,7 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1600, 800);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.modeButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Bind";
@@ -239,20 +254,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button homeButton;
+        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button bindButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button bindButton9;
+        private System.Windows.Forms.Button bindButton8;
+        private System.Windows.Forms.Button bindButton7;
+        private System.Windows.Forms.Button bindButton6;
+        private System.Windows.Forms.Button bindButton5;
+        private System.Windows.Forms.Button bindButton4;
+        private System.Windows.Forms.Button bindButton3;
+        private System.Windows.Forms.Button bindButton2;
+        private System.Windows.Forms.Button bindButton1;
+        private System.Windows.Forms.Button modeButton;
     }
 }
 

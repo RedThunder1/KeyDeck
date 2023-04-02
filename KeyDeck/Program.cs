@@ -5,7 +5,7 @@ namespace KeyDeck
 {
     internal static class Program
     {
-        /// Runs on initalization
+        /// Runs on initialization
         [STAThread]
         static void Main()
         {
@@ -13,18 +13,19 @@ namespace KeyDeck
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Home());
 
-            //Initalization functions
+            //Initialization functions
             SerialCommunication.Initalize();
             ProgramProperties.Initalize();
 
-            //Initalize events
+            //Initialize events
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
 
         }
 
         static void OnProcessExit(object sender, EventArgs e)
         {
-            //Run functions on application exit
+            //Run application exit functions
+            
         }
 
     }
